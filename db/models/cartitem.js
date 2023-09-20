@@ -1,7 +1,9 @@
-'use strict';
+
+
 const {
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class CartItem extends Model {
     /**
@@ -9,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(User, Medicine) {
+    static associate({User, Medicine}) {
       this.belongsTo(User, {
         foreignKey: 'user_id'
       });
