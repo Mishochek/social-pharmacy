@@ -9,12 +9,25 @@ router.get('/', (req, res) => {
 
 router.put('/cart/:id', async (req, res) => {
   try {const pharm = await Medicine.findByPk(req.params.id);
-  console.log(pharm)
+  // console.log(pharm)
   const response = await CartItem.create({
     user_id: req.session.user.id,
     med_id: pharm.id
   });
   res.sendStatus(200);} catch (err) {
+    res.sendStatus(500);
+  }
+})
+
+router.delete('/cart/delete/:id', async (req, res) => {
+  try {
+    const response = await CartItem.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+    res.sendStatus(200);
+  } catch (err) {
     res.sendStatus(500);
   }
 })
