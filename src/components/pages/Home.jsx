@@ -22,19 +22,18 @@ export default function Home({meds}) {
     axios.put(`api/cart/${id}`);
   }
 
-  // const clickHandler = (e) => {
-  //   if (e.target.value === 'low') setMedicine((prev) => prev.sort((el1, el2) => el1.startprice - el2.startprice));
-  //   if (e.target.value === 'high') setMedicine((prev) => prev.sort((el1, el2) => el2.startprice - el1.startprice));
-  //   console.log(medicine)
-  // }
-
   return (
     <>  
+    <form>
+   <p>Выберите дату: <input type="date" name="calendar" />
+   <input type="submit" value="Отправить" /> </p>
+  </form>
     <Form.Select aria-label="Default select example" onChange={(e) => setFilter(e.target.value)}>
       <option value='default'>Open this select menu</option>
       <option value="low">Low price</option>
       <option value="high">High price</option>
     </Form.Select>
+    
     <div className="row justify-content-evenly wrapper">
         {medicine.map((el) => (
           <div className="card" style={{ width: '18rem', margin: '30px', marginTop: '150px' }}>
@@ -42,7 +41,8 @@ export default function Home({meds}) {
           <div className="card-body">
             <p className="card-text" style={{ fontSize: '22px' }}>{el.name}</p>
             <p className="card-text" style={{ fontSize: '22px' }}>{el.eq} шт.</p>
-            <a href={`/category/${el.id}`} className="btn primary" style={{ backgroundColor: '#978C8A', color: 'white' }}>{el.startprice} р.</a>
+            <p  className="btn primary" style={{ backgroundColor: '#978C8A', color: 'white', textDecoration: ' line-through'  }}>{el.startprice} р.</p>
+            <p  className="btn primary" style={{ backgroundColor: 'red', color: 'white', marginLeft: '10px'  }}>{el.saleprice} р.</p>
           </div>
           <Button onClick={()=>addCartHandler(el.id)}>Добавить в корзину</Button>
         </div>

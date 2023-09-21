@@ -6,6 +6,8 @@ export default function CartForm({ item, deleteHandler, handleAddition, med }) {
   // console.log(med, '--------------------------------------------------------------------')
   const [quantity, setQuantity] = useState(1);
 
+
+  
   const handleIncrement = () => {
     if (quantity < med.eq) {
       setQuantity(quantity + 1);

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CartForm from './CartForm'
+import axios from 'axios';
 
 export default function CartPage({ cartItems, meds }) {
   const [cart, setCart] = useState(cartItems);
@@ -23,8 +24,7 @@ export default function CartPage({ cartItems, meds }) {
 
 
   const deleteHandler = (id) => {
-    // console.log(id+'-------------------------------------------------------------------')
-    console.log(cart)
+    axios.delete(`api/cart/delete/${id}`);
     setCart((prev) => prev.filter(item => item.id !== id));
   }
   
