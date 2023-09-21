@@ -1,5 +1,5 @@
 import express from 'express';
-import { Medicine } from '../../db/models';
+import { Medicine , CartItem} from '../../db/models';
 
 const router = express.Router();
 
@@ -7,6 +7,17 @@ router.get('/', (req, res) => {
   res.json({ hello: 'world' });
 });
 
+router.put('/cart/:id', async (req, res) => {
+  try {const pharm = await Medicine.findByPk(req.params.id);
+  console.log(pharm)
+  const response = await CartItem.create({
+    user_id: req.session.user.id,
+    med_id: pharm.id
+  });
+  res.sendStatus(200);} catch (err) {
+    res.sendStatus(500);
+  }
+})
 // router.get('/home', async (req, res) => {
 //   try {
 //     const response = await Medicine.findAll();
