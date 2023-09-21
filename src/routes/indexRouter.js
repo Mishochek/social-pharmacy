@@ -1,4 +1,5 @@
-import express from 'express';
+
+import express from 'express'
 import { Medicine } from '../../db/models';
 
 const router = express.Router();

@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import { User } from '../../db/models';
 import mailer from '../mailer/nodeMailer';
 
+
 const authRouter = express.Router();
 
 authRouter.post('/registration', async (req, res) => {
