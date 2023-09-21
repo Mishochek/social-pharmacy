@@ -3,10 +3,14 @@ import { Medicine } from '../../db/models';
 
 const router = express.Router();
 
-router.get('/', async  (req, res) => {
+router.get('/',  (req, res) => {
 const initState = { hello: 'world'}
 res.redirect('/home');
 });
+
+router.get('/cart', (req, res) => {
+  res.render('Layout')
+})
 
 router.get('/login', (req, res) => {
   res.render('Layout')

@@ -4,6 +4,7 @@ import NavBar from './ui/NavBar';
 import LoginForm from './auth/LoginForm';
 import RegisterForm from './auth/RegForm';
 import Home from './pages/Home';
+import CartPage from './pages/CartPage';
 
 export default function App({ user, meds}) {
   return (
@@ -13,6 +14,7 @@ export default function App({ user, meds}) {
     <Route path='/login' element={<LoginForm />} />
     <Route path='/registration' element={<RegisterForm />} />
     <Route path='/home' element={<Home meds={meds}/>} />
+    <Route path='/cart' element={<CartPage />}/>
     </Routes>
     </>
   );
