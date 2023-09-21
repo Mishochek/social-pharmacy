@@ -7,7 +7,7 @@ export default function CartForm({ item, deleteHandler, handleAddition, med }) {
   const [quantity, setQuantity] = useState(1);
 
 
-  
+
   const handleIncrement = () => {
     if (quantity < med.eq) {
       setQuantity(quantity + 1);
@@ -56,7 +56,7 @@ export default function CartForm({ item, deleteHandler, handleAddition, med }) {
                 <p>{med.eq}</p>
               </div>
               <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button className="btn btn-link px-2" className="btn btn-link px-2" style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold', fontSize: '20px' }}  onClick={() => handleDecrement()}>
+                <button className="btn btn-link px-2" className="btn btn-link px-2" style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold', fontSize: '20px' }} onClick={() => handleDecrement()}>
                   -
                 </button>
 
@@ -70,7 +70,7 @@ export default function CartForm({ item, deleteHandler, handleAddition, med }) {
                   readOnly
                   style={{ width: '50px', textAlign: 'center' }}
                 />
-                <button className="btn btn-link px-2" style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold', fontSize: '20px' }} onClick={() => {handleIncrement()}}>
+                <button className="btn btn-link px-2" style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold', fontSize: '20px' }} onClick={() => { handleIncrement() }}>
                   +
                 </button>
               </div>
