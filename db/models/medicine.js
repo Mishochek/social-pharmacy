@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     img: DataTypes.STRING,
     name: DataTypes.STRING,
     startprice: DataTypes.INTEGER,
-    saleprice: DataTypes.INTEGER
+    saleprice: DataTypes.INTEGER,
+    eq: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Medicine',
