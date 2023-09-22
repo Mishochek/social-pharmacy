@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap';
 
 export default function CartForm({ item, deleteHandler, med }) {
-  console.log(med, '--------------------------------------------------------------------')
   const [quantity, setQuantity] = useState(1);
 
+
+  
   const handleIncrement = () => {
     setQuantity(quantity + 1);
   };
