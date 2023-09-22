@@ -24,6 +24,7 @@ export default function Home({ meds }) {
 
   return (
     <>
+    <div>
       {/* <form>
         <p>Выберите дату: <input type="date" name="calendar" />
           <input type="submit" value="Отправить" /> </p>
@@ -47,7 +48,22 @@ export default function Home({ meds }) {
     cursor: 'pointer'
   }} />
 </form>
-      <Form.Select style={{
+    <div className="row justify-content-evenly wrapper">
+  {medicine.slice(2,5).map((el) => (
+    <div className="card" style={{ width: '18rem', margin: '30px', marginTop: '150px' }}>
+    <img width="150px" height="150px" src={el.img} className="card-img-top" alt="..." />
+    <div className="card-body">
+      <p className="card-text" style={{ fontSize: '22px' }}>{el.name}</p>
+      <p className="card-text" style={{ fontSize: '22px' }}>{el.eq} шт.</p>
+      <p  className="btn primary" style={{ backgroundColor: '#978C8A', color: 'white', textDecoration: ' line-through'  }}>БЕСПЛТАНАТА!!! р.</p>
+      <p  className="btn primary" style={{ backgroundColor: 'red', color: 'white', marginLeft: '10px'  }}>БЕСПЛТАНАТА!!! р.</p>
+    </div>
+    <Button onClick={()=>addCartHandler(el.id)}>Добавить в корзину</Button>
+  </div>
+  ))}
+  </div>
+  </div>
+    <Form.Select style={{
         width: '300px',
         backgroundColor: '#f5f5f5',
         color: '#333',
