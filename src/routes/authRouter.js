@@ -1,6 +1,8 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import { User } from '../../db/models';
+import mailer from '../mailer/nodeMailer';
+
 
 const authRouter = express.Router();
 
@@ -17,6 +19,14 @@ authRouter.post('/registration', async (req, res) => {
     const hashpass = await bcrypt.hash(pass, 10);
     const user = await User.create({ login, email, hashpass });
     req.session.user = { ...user.get(), hashpass: undefined };
+    const message = {
+        to: req.body.email,
+        subject: "Поздравляем, Вы успешно зарегистрировались на нашем сайте!",
+        text: `Поздравляем, Вы успешно зарегистрировались на нашем сайте!
+    Данное письмо не требует ответа. `,
+    };
+    mailer(message);
+    // res.sendStatus(200);
     return res.sendStatus(200).end()
 })
 
