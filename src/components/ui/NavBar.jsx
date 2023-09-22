@@ -23,7 +23,7 @@ export default function NavBar({ user}) {
           > Выход
           </Nav.Link>
               <Nav.Link className='navigation' href="/cart">Корзина</Nav.Link>
-              <Nav.Link className='navigation' href="/account">Личный кабинет</Nav.Link>
+              <Nav.Link className='navigation' href="/profile">Личный кабинет</Nav.Link>
         </>
         ) : (
             <>
